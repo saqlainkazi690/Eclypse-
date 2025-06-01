@@ -1,0 +1,70 @@
+@import url('https://fonts.cdnfonts.com/css/sf-pro-display');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'SF Pro Display', system-ui, -apple-system, sans-serif;
+}
+
+body {
+  background: black;
+  margin: 0;
+  min-height: 100vh;
+}
+
+@layer base {
+  body {
+    @apply bg-black text-white font-sans antialiased;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-900;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-700 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-600;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus styles */
+*:focus {
+  @apply outline-none ring-2 ring-white ring-opacity-50;
+}
+
+/* Form element styles */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+textarea {
+  @apply bg-transparent border border-gray-600 px-4 py-2 focus:border-white transition-colors;
+}
+
+/* Button hover effect */
+.btn-hover {
+  @apply relative overflow-hidden;
+}
+
+.btn-hover::after {
+  content: '';
+  @apply absolute inset-0 bg-white bg-opacity-20 transform scale-x-0 origin-left transition-transform duration-300;
+}
+
+.btn-hover:hover::after {
+  @apply scale-x-100;
+}
