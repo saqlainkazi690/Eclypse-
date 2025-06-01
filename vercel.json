@@ -1,11 +1,8 @@
 {
   "version": 2,
+  "buildCommand": "cd eclipse-fashion && npm install && npm run build",
+  "outputDirectory": "eclipse-fashion/build",
   "builds": [
-    {
-      "src": "eclipse-fashion/package.json",
-      "use": "@vercel/static-build",
-      "config": { "distDir": "build" }
-    },
     {
       "src": "server/index.ts",
       "use": "@vercel/node"
@@ -17,8 +14,11 @@
       "dest": "server/index.ts"
     },
     {
+      "handle": "filesystem"
+    },
+    {
       "src": "/(.*)",
-      "dest": "eclipse-fashion/$1"
+      "dest": "eclipse-fashion/build/$1"
     }
   ]
 } 
